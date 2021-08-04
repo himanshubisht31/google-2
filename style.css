@@ -1,0 +1,42 @@
+        form{
+            width: 25%;
+            text-align: center;
+            font-weight: bold;
+           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 10px;
+        }
+
+        form p{
+            /* display: inline-block; */
+            /* border: 2px solid purple; */
+            float: left;
+        }
+
+        form div {
+            /* border: 2px solid rebeccapurple; */
+           width: 85%;
+        }
+
+        form input{
+            margin: 10px auto;
+            border: 2px solid grey;
+            height: 30px;
+            float: right;
+            
+        }
+
+        #log{
+            position: absolute;
+            left: 30%;
+            top: 1vh;
+        }
+        #btn{
+            position: absolute;
+            height: 50px;
+            width: 100px;
+            font-size: large;
+            left: 60%;
+        }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="home.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="search">
+      <input type="text" id="inp" placeholder="Search" />
+      <button onclick="searchApi()">
+        <span class="material-icons"> search </span>
+      </button>
+    </div>
+
+    <div id="results"></div>
+  </body>
+</html>
+
+<script>
+  // http://api.serpstack.com/search?access_key=a269f7774aa56d58042b2abd039c08d2&query=mcdonalds
+  // a269f7774aa56d58042b2abd039c08d2
+
+  let main = document.getElementById("results");
+  async function searchApi() {
+    main.innerHTML = null;
+
+    let q = document.getElementById("inp").value;
+
+    let res = await fetch(
+      `http://api.serpstack.com/search?access_key=a269f7774aa56d58042b2abd039c08d2&query=${q}`
+    );
+
+    let data = await res.json();
+
+    let arr = data.organic_results;
+
+    console.log(arr);
+
+    arr.forEach(({ title, url }) => {
+      let ti = document.createElement("p");
+
+      let ur = document.createElement("a");
+
+      ti.innerHTML = title;
+      ur.href = url;
+      ur.innerHTML = url;
+      ur.target = "_blank";
+      ur.style.textDecoration='none';
+
+      main.append(ti, ur);
+      //   main.append(div);
+    });
+  }
+</script>
